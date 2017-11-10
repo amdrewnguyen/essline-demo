@@ -85,7 +85,7 @@ const getWeather = () => {
 
 const formatDateString = (s) => {
   let words = s.split(" ");
-  return `_${words[0]}, _${words[1]} _${words[2]}`;
+  return `${words[0]}, ${words[1]} ${words[2]}`;
 };
 
 window.getWeather = getWeather;
