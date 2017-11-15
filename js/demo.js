@@ -1,6 +1,7 @@
 _$(() => {
   const newTodoInput = _$('.new-todo');
-  const addTodoButton = _$('button');
+  const addTodoButton = _$('first-button');
+  const addTodoForm = _$('.add-todo');
   const todoList = _$('.todo-list');
 
   const myStorage = window.localStorage;
@@ -20,7 +21,7 @@ _$(() => {
     }
   );
 
-  addTodoButton.on("click", () => {
+  addTodoForm.on("submit", () => {
     let inputText = newTodoInput.val();
     const todoItem = newTodoLi(inputText);
     todoList.append(todoItem);
