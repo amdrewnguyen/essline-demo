@@ -21,7 +21,8 @@ _$(() => {
     }
   );
 
-  addTodoForm.on("submit", () => {
+  addTodoForm.on("submit", (e) => {
+    e.preventDefault();
     let inputText = newTodoInput.val();
     const todoItem = newTodoLi(inputText);
     todoList.append(todoItem);
@@ -65,7 +66,7 @@ const getWeather = () => {
     {
       type: 'GET',
       url: "https://api.openweathermap.org/data/2.5/weather?q=NewYork,NY&appid=bcb83c4b54aee8418983c2aff3073b3b",
-      success(data) {
+      success: (data) => {
         console.log("We have your weather!");
         console.log(data);
         let d = new Date();
@@ -73,9 +74,8 @@ const getWeather = () => {
         _$(".desc").append(data.weather[0].main);
         const temp = Math.floor((data.main.temp - 273.15) * 9 / 5 + 32);
         _$(".temperature").append(temp + "°F");
-
       },
-      error() {
+      error: () => {
         console.error("An error occurred.");
       },
     }
