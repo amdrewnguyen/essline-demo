@@ -30,9 +30,7 @@ _$(() => {
   });
 
   todoList.on("click", (e) => {
-    // console.log(e.target.parentNode);
     if (e.target.classList.contains("remove-btn")) {
-      // console.log("delete clicked");
       e.currentTarget.removeChild(e.target.parentNode);
       let newTodos = _$(".todo-text");
       myStorage.setItem("todoItems", JSON.stringify(newTodos.text()));
